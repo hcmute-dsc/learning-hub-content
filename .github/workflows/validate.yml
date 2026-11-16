@@ -1,0 +1,32 @@
+name: Validate content
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      # The validator lives in the app repo (packages/content), so app and content
+      # always agree on the format.
+      - uses: actions/checkout@v4
+        with:
+          repository: hcmute-dsc/learning-hub
+          path: .hub
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build the validator
+        working-directory: .hub
+        run: |
+          npx -y pnpm@9.15.4 install --frozen-lockfile --filter @hub/content...
+          npx -y pnpm@9.15.4 --filter @hub/content build
+      - name: Validate tracks
+        run: node .hub/packages/content/dist/cli.js .
