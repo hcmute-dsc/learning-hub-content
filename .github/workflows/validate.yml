@@ -13,14 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       # The validator lives in the app repo (packages/content), so app and content
       # always agree on the format.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           repository: hcmute-dsc/learning-hub
           path: .hub
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
       - name: Build the validator
