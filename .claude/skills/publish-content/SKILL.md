@@ -7,6 +7,16 @@ description: Publish merged learning-hub-content changes to https://learn.hcmute
 
 Publishing changes what every member sees, and posts to the club's Discord. **Only do it when the user asked for it in chat.**
 
+## 0. Tracks in their own repo: pin the commit first
+
+A track listed in `tracks.yaml` (repo `learning-hub-track-<slug>`, ADR-10) is read at the commit written there, not at its `main`. Before syncing:
+
+1. `git ls-remote https://github.com/hcmute-dsc/learning-hub-track-<slug> main` gives the commit to publish.
+2. Open a PR here that changes that track's `commit` in `tracks.yaml`. Title `<slug>: publish <short sha>`; the body lists the track repo PRs since the last publish.
+3. Wait for `validate` (it checks every track together), get the user's review, squash merge.
+
+Then continue below with this repo's new `main` commit.
+
 ## 1. Know what you are publishing
 
 ```bash

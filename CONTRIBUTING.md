@@ -21,6 +21,16 @@ Cảm ơn bạn! Nội dung ở đây được nhiều thế hệ thành viên C
 
 Quy trình chung của cả dự án (vòng đời bug, review, Definition of Done): [WORKFLOW.md](https://github.com/hcmute-dsc/learning-hub-docs/blob/main/docs/ops/WORKFLOW.md).
 
+## Đưa một track lên site (registry)
+
+Track trong repo riêng (`learning-hub-track-<slug>`) chỉ lên site khi commit của nó được ghi vào [`tracks.yaml`](tracks.yaml):
+
+1. Merge các PR nội dung vào `main` của repo track.
+2. Lấy commit mới nhất: `git ls-remote https://github.com/hcmute-dsc/learning-hub-track-<slug> main`.
+3. Mở PR vào repo này, đổi `commit` của track trong `tracks.yaml`. Tiêu đề `<slug>: publish <7 ký tự đầu của commit>`. Thân PR liệt kê các PR của repo track từ lần publish trước.
+4. CI `validate` tải **mọi** track ở commit đã ghim và kiểm tra cùng nhau: slug, uid trùng giữa các track, prerequisite sang track khác.
+5. Ban chủ nhiệm duyệt, squash merge, rồi sync và publish trên trang quản trị.
+
 ## Quy tắc quan trọng
 
 - **`uid` không bao giờ đổi.** Nó là khóa của bài trong database; đổi `uid` làm mất tiến độ của thành viên. Đổi tên, đổi `slug` hay dời thư mục thì được, giữ nguyên `uid`.

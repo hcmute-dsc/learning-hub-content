@@ -15,7 +15,7 @@ This repo holds the public lessons and exercises of the HCMUTE DSC Learning Hub.
 3. **`uid` never changes.** It keys members' progress. New lessons and exercises get a new UUID.
 4. **Correct before pretty.** Every SQL or shell command in a lesson must run on the track's setup (`tracks/<track>/setup`, `docker-compose.yml`). Check answers against the questions.
 5. **Credit sources.** Content from elsewhere names its source and author, in the PR and in `track.yaml` `source`.
-6. **Merged is not live.** Members see a change only after an admin syncs and publishes it on the site. Publishing is an outward action, so ask the user first. Skill: `publish-content`.
+6. **Merged is not live.** Tracks in their own repo (`learning-hub-track-<slug>`, ADR-10) go live through a PR here that changes their `commit` in `tracks.yaml`; then an admin syncs and publishes it on the site. Publishing is an outward action, so ask the user first. Skill: `publish-content`.
 7. **Public repo.** No secrets, member emails or private links. Hidden tests and solutions for `code` exercises never go here.
 8. Write in clear, simple Vietnamese. Technical terms stay in English.
 

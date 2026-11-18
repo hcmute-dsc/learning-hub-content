@@ -28,5 +28,9 @@ jobs:
         run: |
           npx -y pnpm@9.15.4 install --frozen-lockfile --filter @hub/content...
           npx -y pnpm@9.15.4 --filter @hub/content build
-      - name: Validate tracks
-        run: node .hub/packages/content/dist/cli.js .
+      # The registry (tracks.yaml) pins each track repo at a commit: put every track in
+      # one folder and validate them together (ADR-10), with the tracks still kept here.
+      - name: Collect the tracks of the registry
+        run: node tools/assemble-registry.mjs .hub .check
+      - name: Validate all tracks together
+        run: node .hub/packages/content/dist/cli.js .check
