@@ -1,0 +1,11 @@
+# Registry of Learning Hub tracks (DECISIONS ADR-10, CONTENT-SPECIFICATION §1).
+# Each track lives in its own repo, hcmute-dsc/learning-hub-track-<slug>. The hub
+# publishes each track at the commit written here, never at a branch.
+#
+# To publish a new version of a track: open a PR that changes its `commit` to a commit
+# on the track repo's main. CI checks every track together; the club board reviews.
+#
+#   - slug: sql-30-days                                   # = tracks/<slug>/ in the repo
+#     repo: hcmute-dsc/learning-hub-track-sql-30-days
+#     commit: "0123456789abcdef0123456789abcdef01234567"  # full 40-character SHA
+tracks: []
