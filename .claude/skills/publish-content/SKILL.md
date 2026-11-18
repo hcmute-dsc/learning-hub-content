@@ -50,7 +50,7 @@ Click **Publish**, then confirm in the dialog. The version becomes **Đang dùng
   - new items appear in the right chapter;
   - the footer `Nguồn: … @ <sha>` shows the new commit.
 - Open one or two changed lessons and check the fix is there.
-- Ask the user to check the Discord club channel, which agents can't read. They should see a "📚 Nội dung mới đã được publish" message with the track, the lesson titles and a GitHub compare link.
+- Ask the user to check the Discord club channel, which agents can't read. They should see a "📚 Nội dung mới đã được publish" message with the track, the lesson titles and, under each track, a link to **that track's repo** ("Xem thay đổi" compare, or "Xem nội dung" for a new track). A publish that adds, changes and removes nothing posts **no** message (learning-hub#25).
 
 ## 5. Close the loop
 
