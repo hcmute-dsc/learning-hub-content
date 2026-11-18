@@ -19,27 +19,21 @@ Kiểm tra registry trên máy (cần `../learning-hub` đã build `@hub/content
 node tools/assemble-registry.mjs ../learning-hub .check && node ../learning-hub/packages/content/dist/cli.js .check
 ```
 
-Track `sql-30-days` vẫn nằm trong repo này cho tới khi chuyển xong (#9).
+## Các track đang có
 
-## Có gì trong repo
-
-| Track | Nội dung | Nguồn |
+| Track | Repo | Nội dung |
 | --- | --- | --- |
-| [`sql-30-days`](tracks/sql-30-days/README.md) | 30 ngày học SQL với PostgreSQL 16 (32 bài, 32 bài tập, dự án cuối khóa) | Nhập từ [sql-challenge](https://github.com/hcmute-dsc/sql-challenge) bằng `tools/import-sql-challenge.mjs` |
+| `sql-30-days` | [learning-hub-track-sql-30-days](https://github.com/hcmute-dsc/learning-hub-track-sql-30-days) | 30 ngày học SQL với PostgreSQL 16 (32 bài, 32 bài tập, dự án cuối khóa) |
 
 ```
-tracks/<track>/track.yaml
-tracks/<track>/modules/<module>/module.yaml
-tracks/<track>/modules/<module>/lessons/<bài>.md                # front matter + Markdown
-tracks/<track>/modules/<module>/exercises/<bài-tập>/exercise.yaml
-tracks/<track>/modules/<module>/exercises/<bài-tập>/statement.md
-tools/                                                          # script nhập nội dung
+tracks.yaml                 # registry: slug, repo, commit được publish của từng track
+tools/assemble-registry.mjs # tải mọi track ở commit đã ghim vào một thư mục để kiểm tra
 ```
 
 ## Đóng góp
 
-Xem [CONTRIBUTING.md](CONTRIBUTING.md). Tóm tắt: sửa file → chạy validator → mở Pull Request → maintainer của track duyệt → Ban kỹ thuật sync và publish lên Learning Hub.
+Sửa bài học, bài tập: làm trong repo của track, theo CONTRIBUTING của repo đó. Đưa một track lên site: xem [CONTRIBUTING.md](CONTRIBUTING.md) của repo này.
 
 ## Giấy phép
 
-Mỗi track ghi giấy phép trong `track.yaml` (trường `license`). `sql-30-days` dùng **MIT** như repo gốc. Nội dung mới mặc định **CC BY-SA 4.0** cho văn bản và **MIT** cho mã mẫu.
+Mỗi track ghi giấy phép trong `track.yaml` (trường `license`) và `LICENSE.md` của repo track. `sql-30-days` dùng **MIT** như repo gốc `sql-challenge`. Nội dung mới mặc định **CC BY-SA 4.0** cho văn bản và **MIT** cho mã mẫu.

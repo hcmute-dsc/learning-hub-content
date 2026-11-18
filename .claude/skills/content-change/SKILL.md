@@ -1,16 +1,16 @@
 ---
 name: content-change
-description: Change Learning Hub content the standard way — issue on Project #1, branch, edit lessons/exercises/quizzes per the content spec, run the commands and the validator, commit, PR with Closes, review, squash merge. Use for any fix or addition in learning-hub-content (typo, wrong answer, new lesson, new exercise, new track, review of a track).
+description: Change Learning Hub content the standard way — issue on Project #1, branch, edit lessons/exercises/quizzes per the content spec, run the commands and the validator, commit, PR with Closes, review, squash merge. Use for any fix or addition in a track repo learning-hub-track-<slug> (typo, wrong answer, new lesson, new exercise, review of a track).
 ---
 
 # Change content
 
-Rules: `AGENTS.md` and `CONTRIBUTING.md` in this repo. Format: learning-hub-docs `docs/product/CONTENT-SPECIFICATION.md`.
+Since ADR-10 each track has its own repo, `hcmute-dsc/learning-hub-track-<slug>`; this repo is only the registry. Do the work below **in the track repo** (clone it next to `../learning-hub`). Rules: `AGENTS.md` and `CONTRIBUTING.md` of the track repo. Format: learning-hub-docs `docs/product/CONTENT-SPECIFICATION.md`.
 
 ## 1. Issue and branch
 
 ```bash
-gh issue list --repo hcmute-dsc/learning-hub-content --state all --search "<keywords>"
+gh issue list --repo hcmute-dsc/learning-hub-track-<slug> --state all --search "<keywords>"
 ```
 
 If no issue fits, open one:
@@ -71,7 +71,7 @@ Refs #<issue>
 
 ```bash
 git push -u origin HEAD
-gh pr create --repo hcmute-dsc/learning-hub-content --base main --title "<commit title>" --body-file pr.md
+gh pr create --repo hcmute-dsc/learning-hub-track-<slug> --base main --title "<commit title>" --body-file pr.md
 ```
 
 Fill the body from `.github/pull_request_template.md`:
@@ -83,7 +83,7 @@ Fill the body from `.github/pull_request_template.md`:
 Wait for `validate` to go green:
 
 ```bash
-gh pr checks <n> --repo hcmute-dsc/learning-hub-content --watch
+gh pr checks <n> --repo hcmute-dsc/learning-hub-track-<slug> --watch
 ```
 
 Self-review with `../learning-hub/.claude/skills/review-pr/SKILL.md` (content section). Then hand the PR to the maintainer listed in `CODEOWNERS` to review and squash merge. Don't merge without their yes in chat.
