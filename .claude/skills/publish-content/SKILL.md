@@ -1,15 +1,15 @@
 ---
 name: publish-content
-description: Publish merged learning-hub-content changes to https://learn.hcmute-dsc.io.vn — sync the latest main commit into a draft, check the draft's change counts against the merged PRs, publish, verify the track page and the Discord announcement, and close the issues. Use when the user asks to publish content or after a content PR is merged and the user agrees to put it live.
+description: Publish merged track changes (pinned in learning-hub-content tracks.yaml) to https://learn.hcmute-dsc.io.vn — sync the latest main commit into a draft, check the draft's change counts against the merged PRs, publish, verify the track page and the Discord announcement, and close the issues. Use when the user asks to publish content or after a content PR is merged and the user agrees to put it live.
 ---
 
 # Publish content
 
 Publishing changes what every member sees, and posts to the club's Discord. **Only do it when the user asked for it in chat.**
 
-## 0. Tracks in their own repo: pin the commit first
+## 0. Pin the track commit first
 
-A track listed in `tracks.yaml` (repo `learning-hub-track-<slug>`, ADR-10) is read at the commit written there, not at its `main`. Before syncing:
+Every track lives in its own repo `learning-hub-track-<slug>` (ADR-10) and is read at the commit written there, not at its `main`. Before syncing:
 
 1. `git ls-remote https://github.com/hcmute-dsc/learning-hub-track-<slug> main` gives the commit to publish.
 2. Open a PR here that changes that track's `commit` in `tracks.yaml`. Title `<slug>: publish <short sha>`; the body lists the track repo PRs since the last publish.
