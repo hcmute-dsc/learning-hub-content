@@ -17,14 +17,20 @@ If no issue fits, open one:
 - **Errors**: template "Lỗi nội dung", label `bug`. Say which lesson, what is wrong, and what it should be.
 - **New material**: "Đề xuất", label `enhancement`.
 
-Then put the issue on the board. The helper lives in the code repo, which CONTRIBUTING already asks you to clone next to this one:
+Then fill in **every** sidebar field: type, label, assignee, milestone, the board fields, the sprint, and the org Priority/Effort/dates. The list and how to choose values: learning-hub-docs `docs/ops/WORKFLOW.md` §1.1. The helper lives in the code repo, which CONTRIBUTING already asks you to clone next to this one; it fills everything in one call:
 
 ```bash
 bash ../learning-hub/.claude/skills/start-task/project-item.sh <issue-url> \
-  "Status=In progress" "Priority=P2 - Bình thường" Area=Content Size=S
-gh issue edit <issue-url> --add-assignee @me
+  Type=Bug Label=bug "Status=In progress" "Priority=P2 - Bình thường" Area=Content Size=S \
+  "Epic=Phase 0" Sprint=@current "Milestone=Phase 0 — Dùng thử" Assignee=@me
 git switch main && git pull --ff-only && git switch -c fix/<issue>-<slug>
 ```
+
+- Wrong content is `Type=Bug Label=bug`.
+- New lessons or tracks are `Type=Feature Label=enhancement`.
+- A track review is `Type=Task Label=content`.
+
+The PR gets the same assignee, label, milestone and board fields, with `Status=In review`.
 
 A review of a whole track produces many findings. Log them in one issue with a checklist grouped by severity (Cao, Trung bình, Thấp), then ship one PR per severity group. See issue #1 and PRs #2, #3.
 
