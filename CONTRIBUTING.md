@@ -4,8 +4,9 @@ Cảm ơn bạn! Nội dung ở đây được nhiều thế hệ thành viên C
 
 ## Quy trình
 
-1. Tạo nhánh mới (hoặc fork), sửa hoặc thêm file theo [đặc tả](https://github.com/hcmute-dsc/learning-hub-docs/blob/main/docs/product/CONTENT-SPECIFICATION.md).
-2. Chạy validator (cần Node 22):
+1. Có issue trước (dùng mẫu "Lỗi nội dung" hoặc "Đề xuất"), tự gán mình và chuyển Status = In progress trên [Project #1](https://github.com/orgs/hcmute-dsc/projects/1). Tìm issue có sẵn trước khi tạo mới.
+2. Tạo nhánh `<loại>/<số issue>-<mô-tả-ngắn>` từ `main` mới nhất (ví dụ `fix/5-sql-day10-answer`, `feat/6-git-track`), hoặc fork. Sửa hoặc thêm file theo [đặc tả](https://github.com/hcmute-dsc/learning-hub-docs/blob/main/docs/product/CONTENT-SPECIFICATION.md).
+3. Chạy validator (cần Node 22):
 
    ```bash
    git clone https://github.com/hcmute-dsc/learning-hub ../learning-hub
@@ -13,9 +14,12 @@ Cảm ơn bạn! Nội dung ở đây được nhiều thế hệ thành viên C
    node ../learning-hub/packages/content/dist/cli.js .
    ```
 
-3. Mở Pull Request theo mẫu. CI chạy lại validator; PR đỏ thì sửa đến khi xanh.
-4. Maintainer của track (trong `track.yaml`, xem `CODEOWNERS`) duyệt và merge.
-5. Ban kỹ thuật sync và publish lên Learning Hub. Mỗi bản publish gắn với đúng commit SHA đã merge.
+4. Commit dạng `<track>: <tóm tắt>` (ví dụ `sql-30-days: sửa đáp án bài 3 Ngày 10`), thân commit ghi lý do và `Refs #<số>`.
+5. Mở Pull Request theo mẫu, dòng đầu `Closes #<số>`. CI chạy lại validator; PR đỏ thì sửa đến khi xanh.
+6. Maintainer của track (trong `track.yaml`, xem `CODEOWNERS`) review (kiến thức đúng, câu lệnh chạy được, văn phong dễ hiểu), rồi **squash merge**. Không đẩy thẳng lên `main`.
+7. Ban kỹ thuật sync và publish lên Learning Hub. Mỗi bản publish gắn với đúng commit SHA đã merge. Issue chỉ xong (Done) khi nội dung đã lên site.
+
+Quy trình chung của cả dự án (vòng đời bug, review, Definition of Done): [WORKFLOW.md](https://github.com/hcmute-dsc/learning-hub-docs/blob/main/docs/ops/WORKFLOW.md).
 
 ## Quy tắc quan trọng
 
