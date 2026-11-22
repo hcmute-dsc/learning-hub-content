@@ -15,3 +15,6 @@ tracks:
   - slug: discord-webhook-automation
     repo: hcmute-dsc/learning-hub-track-discord-webhook-automation
     commit: "6d960289cf5c006529372a7b6b63bb886e58eda5"
+  - slug: actions-docker
+    repo: hcmute-dsc/learning-hub-track-actions-docker
+    commit: "8409221b30eb526ef9b1f8efa1c167ec38895e9d"
