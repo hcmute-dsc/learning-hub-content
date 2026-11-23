@@ -11,10 +11,10 @@
 tracks:
   - slug: sql-30-days
     repo: hcmute-dsc/learning-hub-track-sql-30-days
-    commit: "d737046c2dfdd6084c9d087e44a29b044f13c244"
+    commit: "d492e503fd0d0085c4634905f10c62b5c6f74631"
   - slug: discord-webhook-automation
     repo: hcmute-dsc/learning-hub-track-discord-webhook-automation
-    commit: "6d960289cf5c006529372a7b6b63bb886e58eda5"
+    commit: "181d1dda5c4f1450f450a418d4831e0791e94ba2"
   - slug: actions-docker
     repo: hcmute-dsc/learning-hub-track-actions-docker
     commit: "8409221b30eb526ef9b1f8efa1c167ec38895e9d"
