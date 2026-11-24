@@ -18,3 +18,9 @@ tracks:
   - slug: actions-docker
     repo: hcmute-dsc/learning-hub-track-actions-docker
     commit: "8409221b30eb526ef9b1f8efa1c167ec38895e9d"
+  - slug: github-actions-basics
+    repo: hcmute-dsc/learning-hub-track-github-actions-basics
+    commit: "f4229d2f7e12cdbd861e3655cd9231bcc56f77aa"
+  - slug: docker-basics
+    repo: hcmute-dsc/learning-hub-track-docker-basics
+    commit: "948e17e6b874890dfe0e24acaa4f9728670609d4"
